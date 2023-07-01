@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>CSPIT Institute</title>
+  <script>
+    // Define CSPIT object
+    var CSPIT = {
+      department: ['CE', 'IT', 'CS', 'EC', 'EE', 'CL', 'ME'],
+      Establishment: 2000,
+      location: 'Changa',
+      getDetails: function() {
+        console.log("CSPIT Details:");
+        console.log("Departments:", this.department);
+        console.log("Year of Establishment:", this.Establishment);
+        console.log("Location:", this.location);
+      }
+    };
+
+    // Define CE department as a Object of CSPIT
+    CSPIT.CE = Object.create(CSPIT);
+    CSPIT.CE.totalStudents = 250;
+    CSPIT.CE.totalFaculty = 30;
+
+    // Retrieve all records from CSPIT
+    console.log("CSPIT Records:");
+    for (var prop in CSPIT) {
+      if (typeof CSPIT[prop] !== 'function') {
+        console.log(prop + ": ", CSPIT[prop]);
+      }
+    }
+
+    // Retrieve all records from CE department
+    console.log("\nCE Department Records:");
+    for (var prop in CSPIT.CE) {
+      if (typeof CSPIT.CE[prop] !== 'function') {
+        console.log(prop + ": ", CSPIT.CE[prop]);
+      }
+    }
+  </script>
+</head>
+<body>
+  <h1>CSPIT Institute</h1>
+  <script>
+    // Output CSPIT details to HTML body
+    document.write("<h2>CSPIT Records:</h2>");
+    for (var prop in CSPIT.CE) {
+      if (typeof CSPIT.CE[prop] !== 'function') {
+        document.write(prop + ": " + CSPIT.CE[prop] + "<br>");
+      }
+    }
+  </script>
+</body>
+</html>
